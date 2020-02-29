@@ -1,0 +1,156 @@
+body,
+figure,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+dd,
+input,
+textarea {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+    font-weight: normal;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+}
+
+input,
+button,
+textarea {
+    border: 0;
+    outline: none;
+    background: #fff;
+}
+
+textarea {
+    font-family: "Microsoft Yahei";
+    resize: none;
+}
+
+img {
+    vertical-align: top;
+    border: 0;
+}
+
+mark {
+    background: #fff;
+}
+
+
+/* 伪元素清除浮动法 */
+
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+/* 单行文本居中
+{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+*/
+
+
+/* 多行文本居中
+{
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:;
+}
+*/
+
+
+/* 对于c3属性的浏览器兼容： 
+渐进增强：
+{
+    -webkit-;
+    -moz-;
+    -o-;
+    ;
+}
+优雅降级：
+{
+    ;
+    -o-;
+    -moz-;
+    -webkit-;
+} */
+
+::-webkit-input-placeholder {
+    color: #fff;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #fff;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff;
+}
+
+:-ms-input-placeholder {
+    color: #fff;
+}
+
+
+/*
+要进行移动端的rem布局时(此时的设备像素比为2，定义px-->rem为240，至少保留3位小数)
+html {
+    font-size: 32vw;
+}
+*/
+
+
+/* 
+需要高度自适应的： 当高度为%时：
+html,
+body {
+    height: 100%;
+} 
+设置最小高的兼容：
+{
+    min-height:;
+    _height:;
+}
+*/
