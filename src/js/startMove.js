@@ -1,5 +1,13 @@
 var flag = null;
 
+function getStyle(obj, attr) {
+    if (window.getComputedStyle) {
+        return getComputedStyle(obj, false)[attr];
+    } else {
+        return obj.currentStyle[attr];
+    }
+}
+
 function startMove(obj, json, time, callback) {
     flag = true;
     clearInterval(obj.timer);
