@@ -27,12 +27,16 @@ window.onload = () => {
             $(".header_bottom ul").children().children().children("img").eq(i).attr({ src: pros[$(this).index()][0][i] });
             $(".header_bottom ul").children().children().children("strong").eq(i).text(pros[$(this).index()][1][i]);
             $(".header_bottom ul").children().children().children("i").eq(i).text(pros[$(this).index()][2][i]);
+
         }
+        $(".cover").css({ display: "block" })
     })
-    $(".header_bottom nav").mouseleave(function() {
+    $(".cover").mouseenter(function() {
         $(".header_bottom div").stop().slideUp(200, "linear");
+        $(".cover").css({ display: "none" });
     })
 
+    // search
     var sInfo = ["小米9", "Redmi K20 Pro", "Redmi K20", "Redmi Note7 Pro", "Redmi Note7", "小米电视4c", "电视32英寸", "笔记本pro", "小爱音响", "净水器"];
 
     $(".header_bottom form input").focus(function() {
@@ -46,36 +50,70 @@ window.onload = () => {
         $(".header_bottom form").css({ border: "1px solid #e0e0e0" }).children("button").css({ borderLeft: "1px solid #e0e0e0" }).siblings(".m1").fadeIn(100, "linear").siblings("p").css({ display: "none" });
     })
 
+    // banner轮播图
     var num = 0;
     var oBan = document.querySelector(".banner")
-    var pics = document.querySelector(".banner ul:nth-of-type(1)");
+    var pics = document.querySelector(".banner ul:nth-of-type(2)");
     var btns = document.querySelector(".banner ul:nth-of-type(3)");
-    var left = document.querySelector(".banner span:nth-of-type(1)");
-    var right = document.querySelector(".banner span:nth-of-type(2)");
-    var timer = setInterval(autoPlay, 1800);
+    var left = document.querySelector(".banner span:nth-of-type(2)");
+    var right = document.querySelector(".banner span:nth-of-type(1)");
+    var timer = setInterval(autoPlay, 5000);
 
     function autoPlay() {
-        num++;
         if (num === pics.children.length) {
             num = 0;
+        } else if (num === -1) {
+            num = pics.children.length - 1;
         }
         for (var i = 0; i < 5; i++) {
             btns.children[i].className = "";
-            startMove(pics.children[i], { "opacity": 0 }, 0);
+            startMove(pics.children[i], { "opacity": 0 }, 30);
         }
         btns.children[num].className = "on";
-        startMove(pics.children[num], { "opacity": 100 }, 0);
+        startMove(pics.children[num], { "opacity": 100 }, 30);
     }
     oBan.addEventListener("mouseenter", function() {
         clearInterval(timer);
     }, false)
     oBan.addEventListener("mouseleave", function() {
-        timer = setInterval(autoPlay, 3000);
+        timer = setInterval(() => {
+            num++;
+            autoPlay();
+        }, 5000);
     }, false)
     for (let i = 0; i < btns.children.length; i++) {
         btns.children[i].addEventListener("click", function() {
-            num = i - 1; //点击按钮时要确定num的值
+            num = i - 1;
+            num++;
             autoPlay();
         }, false)
     }
+
+    left.addEventListener("click", function() {
+        num--;
+        autoPlay();
+    }, false)
+
+    right.addEventListener("click", function() {
+        num++;
+        autoPlay();
+    }, false)
+    var phone = [
+        ["../img/mb1.webp", "../img/mb2.webp", "../img/mb1.webp", "../img/mb2.webp", "../img/mb1.webp", "../img/mb2.webp", "../img/mb1.webp", "../img/mb2.webp", "../img/mb1.webp", "../img/mb2.webp", "../img/mb1.webp", "../img/mb2.webp", "../img/mb1.webp", "../img/mb2.webp"],
+        ["miBook 1", "miBook 2", "miBook 1", "miBook 2", "miBook 1", "miBook 2", "miBook 1", "miBook 2", "miBook 1", "miBook 2", "miBook 1", "miBook 2", "miBook 1", "miBook 2"]
+    ];
+    // banner商品信息
+    var laptap = [
+        ["../img/mt1.webp", "../img/mt2.webp", "../img/mt1.webp", "../img/mt2.webp", "../img/mt1.webp", "../img/mt2.webp", "../img/mt1.webp", "../img/mt2.webp", "../img/mt1.webp", "../img/mt2.webp", "../img/mt1.webp", "../img/mt2.webp", "../img/mt1.webp", "../img/mt2.webp", "../img/mt1.webp", "../img/mt2.webp", "../img/mt1.webp", "../img/mt2.webp", "../img/mt1.webp", "../img/mt1.webp"],
+        ["miPhone 1", "miPhone 2", "miPhone 1", "miPhone 2", "miPhone 1", "miPhone 2", "miPhone 1", "miPhone 2", "miPhone 1", "miPhone 2", "miPhone 1", "miPhone 2", "miPhone 1", "miPhone 2", "miPhone 1", "miPhone 1", "miPhone 2", "miPhone 1", "miPhone 2", "miPhone 1"]
+    ];
+    var all = [phone, laptap, phone, laptap, phone, laptap, phone, laptap, phone, laptap];
+    for (let i = 0; i < all.length; i++) {
+        $(`.banner ul:nth-of-type(1) li div:eq(${i})`).css({ width: `${990/4*Math.ceil(all[i][0].length/6)}px` });
+        for (let j = 0; j < phone[0].length; j++) {
+            $(`.banner ul:nth-of-type(1) li div:eq(${i})`).append($(`<p><img src=${all[i][0][j]}>${all[i][1][j]}</p>`));
+        }
+    }
+
+
 }

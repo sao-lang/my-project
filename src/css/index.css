@@ -4,7 +4,7 @@ header {
     display: flex;
     justify-content: space-between;
     height: 40px;
-    padding: 0 70px;
+    padding: 0 62px;
     box-sizing: border-box;
     font-size: 11px;
     line-height: 1;
@@ -69,14 +69,46 @@ header nav:nth-of-type(2) a:last-of-type:hover+span {
 }
 
 
+/* .cover */
+
+.cover {
+    display: none;
+    position: absolute;
+    top: 0;
+    height: 155px;
+}
+
+.cover:nth-of-type(1) {
+    left: 0;
+    width: 315px;
+}
+
+.cover:nth-of-type(2) {
+    width: 570px;
+    right: 0;
+}
+
+.cover:nth-of-type(3) {
+    left: 315px;
+    width: 481px;
+    height: 40px;
+}
+
+.cover:nth-of-type(4) {
+    top: 357px;
+    z-index: 99;
+    width: 100%;
+    height: 500px;
+}
+
+
 /* header_bottom */
 
 .header_bottom {
     position: relative;
     display: flex;
-    padding: 0 70px;
+    width: 1226px;
     margin: 30px auto;
-    box-sizing: border-box;
 }
 
 .header_bottom>span {
@@ -250,6 +282,9 @@ header nav:nth-of-type(2) a:last-of-type:hover+span {
     background: #fafafa;
 }
 
+
+/* banner */
+
 .banner {
     position: relative;
     width: 1226px;
@@ -258,27 +293,29 @@ header nav:nth-of-type(2) a:last-of-type:hover+span {
     overflow: hidden;
 }
 
-.banner ul:nth-of-type(1) {
-    position: absolute;
-    display: flex;
-    width: 1226px;
-    height: 460px;
-}
-
-.banner ul:nth-of-type(1) li {
-    position: absolute;
-    width: 1226px;
-    height: 460px;
-}
-
-.banner ul:nth-of-type(1) li img {
-    width: 1226px;
-}
-
 .banner ul:nth-of-type(2) {
+    width: 1226px;
+    height: 460px;
+}
+
+.banner ul:nth-of-type(2) li {
     position: absolute;
+    width: 1226px;
+    height: 460px;
+    cursor: pointer;
+}
+
+.banner ul:nth-of-type(2) li img {
+    width: 1226px;
+}
+
+.banner ul:nth-of-type(1) {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
     width: 234px;
     height: 460px;
     padding: 20px 0;
@@ -286,7 +323,7 @@ header nav:nth-of-type(2) a:last-of-type:hover+span {
     background: rgba(95, 87, 80, .4);
 }
 
-.banner ul:nth-of-type(2) li {
+.banner ul:nth-of-type(1) li {
     height: 42px;
     font-size: 14px;
     color: #fff;
@@ -295,8 +332,38 @@ header nav:nth-of-type(2) a:last-of-type:hover+span {
     cursor: pointer;
 }
 
-.banner ul:nth-of-type(2) li:hover {
+.banner ul:nth-of-type(1) li:hover {
     background: #ff6700;
+}
+
+.banner ul:nth-of-type(1) li div {
+    display: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 234px;
+    top: 0;
+    width: 994px;
+    height: 460px;
+    box-shadow: 2px 2px 2px 2px #aaa;
+    background: #fff;
+}
+
+.banner ul:nth-of-type(1) li:hover div {
+    display: flex;
+}
+
+.banner ul:nth-of-type(1) li div p {
+    display: flex;
+    align-items: center;
+    width: 226px;
+    height: 76.66px;
+    font-size: 12px;
+    color: #000;
+}
+
+.banner ul:nth-of-type(1) li div p img {
+    margin: 0 20px 0 30px;
 }
 
 .banner ul:nth-of-type(3) {
@@ -346,3 +413,69 @@ header nav:nth-of-type(2) a:last-of-type:hover+span {
 .banner span:nth-of-type(2) {
     right: 0;
 }
+
+
+/* banner_bottom */
+
+.banner_bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 1226px;
+    margin: 15px auto 28px;
+}
+
+.banner_bottom div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 234px;
+    height: 170px;
+    padding: 9px;
+    box-sizing: border-box;
+    background: rgb(95, 87, 80);
+}
+
+.banner_bottom div a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    height: 50%;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    font-size: 11px;
+    color: #aaa;
+}
+
+.banner_bottom div a:hover {
+    color: #fff;
+}
+
+.banner_bottom div a:nth-of-type(3n) {
+    border-right: none;
+}
+
+.banner_bottom div a:nth-of-type(3)~a {
+    border-bottom: none;
+}
+
+.banner_bottom div a img {
+    width: 25px;
+    margin: 9px 0 9px;
+}
+
+.banner_bottom>img {
+    width: 314px;
+    cursor: pointer;
+}
+
+
+/* market */
+
+.market {
+    background: rgb(245, 245, 245);
+}
+
+
+/* shopping */
