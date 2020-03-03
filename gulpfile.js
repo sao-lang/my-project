@@ -5,7 +5,7 @@ const autoprefixer = require("gulp-autoprefixer");
 const uglify = require("gulp-uglify");
 const babel = require("gulp-babel");
 const del = require("del");
-// const webserver = require('gulp-webserver');
+const webserver = require('gulp-webserver');
 const htmlHandler = () => {
     return gulp.src("./src/views/*.html")
         .pipe(htmlmin({
@@ -57,25 +57,24 @@ const delHandler = () => {
 }
 
 // 8 写一个配置服务器的方法
-// const serverHandler = () => {
-//     return gulp.src('./dist') 
-//         .pipe(webserver({
-//             host: 'www.guoxiang.com',
-//             port: 8080,
-//             open: './pages/index.html', 
-//             livereload: true, 
-//             proxies: [
-//                 {
-//                     source: '/gx',
-//                     target: 'http://127.0.0.1/test.php' 
-//                 },
-//                 {
-//                     source: '/gx2',
-//                     target: 'http://127.0.0.1/xxx.php'
-//                 }
-//             ]
-//         }))
-// }
+const serverHandler = () => {
+    return gulp.src('./dist')
+        .pipe(webserver({
+            host: 'localhost',
+            port: 8080,
+            open: './views/login.html',
+            livereload: true,
+            proxies: [{
+                    source: '/gx',
+                    target: 'http://localhost:80/register.php'
+                },
+                {
+                    source: '/gx2',
+                    target: 'http://localhost:80/login.php'
+                }
+            ]
+        }))
+}
 
 
 const watchHandler = () => {
@@ -89,6 +88,6 @@ const watchHandler = () => {
 module.exports.default = gulp.series(
     delHandler,
     gulp.parallel(cssHandler, jsHandler, htmlHandler, imgHandler, libHandler),
-    // serverHandler,
+    serverHandler,
     watchHandler
 )

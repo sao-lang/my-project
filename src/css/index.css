@@ -107,8 +107,10 @@ header nav:nth-of-type(2) a:last-of-type:hover+span {
 .header_bottom {
     position: relative;
     display: flex;
-    width: 1226px;
+    width: 100%;
+    padding: 0 62px;
     margin: 30px auto;
+    box-sizing: border-box;
 }
 
 .header_bottom>span {
@@ -343,7 +345,6 @@ header nav:nth-of-type(2) a:last-of-type:hover+span {
     position: absolute;
     left: 234px;
     top: 0;
-    width: 994px;
     height: 460px;
     box-shadow: 2px 2px 2px 2px #aaa;
     background: #fff;
@@ -465,7 +466,7 @@ header nav:nth-of-type(2) a:last-of-type:hover+span {
     margin: 9px 0 9px;
 }
 
-.banner_bottom>img {
+.banner_bottom>a img {
     width: 314px;
     cursor: pointer;
 }
@@ -474,8 +475,672 @@ header nav:nth-of-type(2) a:last-of-type:hover+span {
 /* market */
 
 .market {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: rgb(245, 245, 245);
+}
+
+.market h3 {
+    font-size: 23px;
+    color: #333;
+    text-align: left;
+    line-height: 62px;
 }
 
 
 /* shopping */
+
+.shopping {
+    position: relative;
+    width: 1226px;
+    margin: 0 auto 30px;
+}
+
+.shopping span {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 70px;
+}
+
+.shopping span i {
+    width: 50%;
+    border: 1px solid rgb(224, 224, 224);
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.shopping span i:last-child {
+    border-left: none;
+}
+
+.shopping span i:hover {
+    color: #ff6700;
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.time div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 235px;
+    height: 340px;
+    border-top: 1px solid red;
+    line-height: 1;
+    background: rgb(241, 237, 237) url(../img/shopping_bg.jpg) center 112px no-repeat;
+}
+
+.time div:first-of-type>p {
+    display: flex;
+    justify-content: center;
+    margin: 62px 0 118px;
+    font-size: 20px;
+    color: red;
+}
+
+.time div:first-of-type>p>strong {
+    width: 66px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.time div:first-of-type b {
+    font-size: 13px;
+    color: #6d6d6d;
+}
+
+.time div:first-of-type ul {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.time div:first-of-type ul li {
+    text-align: center;
+    line-height: 48px;
+}
+
+.time div:first-of-type ul li:nth-of-type(odd) {
+    width: 48px;
+    font-size: 27px;
+    color: #fff;
+    background: rgb(96, 87, 81);
+}
+
+.time div:first-of-type ul li:nth-of-type(even) {
+    width: 16px;
+    font-size: 30px;
+    color: #333;
+    line-height: 40px;
+}
+
+.play {
+    position: relative;
+    width: 974px;
+    height: 340px;
+    overflow: hidden;
+}
+
+.play ul {
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 994px;
+    height: 340px;
+}
+
+.play ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: left;
+    width: 228.5px;
+    height: 340px;
+    margin: 0 10px;
+    line-height: 1;
+    background: #fafafa;
+    cursor: pointer;
+}
+
+
+/* 倒计时、手机商品内容 */
+
+.play ul li img,
+.phone>div ul li img,
+.elec>div ul li img,
+.intell>div ul li img,
+.collo>div ul li img,
+.par>div ul li img {
+    width: 223.5px;
+    margin: 23px 0 32px;
+}
+
+.play ul li p,
+.phone>div ul li p,
+.elec>div ul li img,
+.intell>div ul li p,
+.collo>div ul li p,
+.par>div ul li img {
+    width: 194px;
+    font-size: 12px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.play ul li em,
+.phone>div ul li em,
+.elec>div ul li em,
+.intell>div ul li em,
+.collo>div ul li em,
+.par>div ul li em {
+    margin: 9px 0 13px;
+    font-size: 12px;
+    color: #bbbbbb;
+}
+
+.play ul li strong,
+.phone>div ul li strong,
+.elec>div ul li strong,
+.intell>div ul li strong,
+.collo>div ul li strong,
+.par>div ul li strong {
+    display: flex;
+    justify-content: center;
+}
+
+.play ul li strong b,
+.phone>div ul li strong b,
+.elec>div ul li strong b,
+.intell>div ul li strong b,
+.collo>div ul li strong b,
+.par>div ul li strong b {
+    margin: 0 3px;
+    font-size: 10px;
+}
+
+.play ul li strong b:nth-child(1),
+.phone>div ul li strong b:nth-child(1),
+.elec>div ul li strong b:nth-child(1),
+.intell>div ul li strong b:nth-child(1),
+.collo>div ul li strong b:nth-child(1),
+.par>div ul li strong b:nth-child(1) {
+    color: #fa6509;
+}
+
+.play ul li strong b:nth-child(2),
+.phone>div ul li strong b:nth-child(2),
+.elec>div ul li strong b:nth-child(2),
+.intell>div ul li strong b:nth-child(2),
+.collo>div ul li strong b:nth-child(2),
+.par>div ul li strong b:nth-child(2) {
+    color: #bbb;
+    text-decoration: line-through;
+}
+
+
+/* 手机 */
+
+.phone {
+    position: relative;
+    width: 1226px;
+    margin: 20px 0 37px;
+}
+
+
+/* 视频的更多 */
+
+.phone>a,
+.video>a {
+    position: absolute;
+    top: 24px;
+    right: 0;
+    width: 94px;
+    font-size: 17px;
+    background: url(../img/phone_bg.jpg) right center no-repeat;
+    cursor: pointer;
+}
+
+.phone>a:hover,
+.video>a:hover {
+    color: #ff6700;
+    background: url(../img/phone_bg_active.jpg) right center no-repeat;
+}
+
+
+/* 搭配、周边、家电等细节 */
+
+.phone>div,
+.elec div,
+.intell div,
+.collo div,
+.par div {
+    display: flex;
+}
+
+.phone>div>a img,
+.elec>div p img,
+.intell>div p img,
+.collo>div p img,
+.par>div p img {
+    margin-right: 16px;
+    transition: all .4s;
+}
+
+.phone>div ul,
+.elec>div ul,
+.intell>div ul,
+.collo>div ul,
+.par>div ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    width: 980px;
+}
+
+.phone>div ul li,
+.elec>div ul li,
+.intell>div ul li,
+.collo>div ul li,
+.par>div ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 234px;
+    height: 300px;
+    background: #ffffff;
+    transition: all .4s;
+}
+
+.phone>div ul li img {
+    width: 70%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.phone>div>a img:hover,
+.phone>div ul li:hover,
+.elec>div p img:hover,
+.elec>div ul li:hover,
+.elec>div ul li>div:hover,
+.intell>div p img:hover,
+.intell>div ul li:hover,
+.intell>div ul li>div:hover,
+.collo>div p img:hover,
+.collo>div ul li:hover,
+.collo>div ul li>div:hover,
+.par>div p img:hover,
+.par>div ul li:hover,
+.par>div ul li>div:hover {
+    box-shadow: 3px 3px 3px 5px #ddd;
+    transform: translateY(-3px);
+}
+
+
+/* 家电、智能等 */
+
+.elec,
+.intell,
+.collo,
+.par {
+    position: relative;
+    width: 1226px;
+    margin: 20px 0 36px;
+}
+
+.elec>p,
+.intell>p,
+.collo>p,
+.par>p {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 160px;
+    font-size: 17px;
+}
+
+.elec>p span,
+.intell>p,
+.collo>p,
+.par>p span {
+    padding-bottom: 3px;
+    cursor: pointer;
+}
+
+.elec>p span.online,
+.intell>p span.online,
+.collo>p span.online,
+.par>p span.online {
+    border-bottom: 2px solid rgb(255, 103, 0);
+    color: rgb(255, 103, 0);
+}
+
+.elec>div,
+.intell>div,
+.collo>div,
+.par>div {
+    position: relative;
+}
+
+.elec>div>p,
+.intell>div>p,
+.collo>div>p,
+.par>div>p {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 616px;
+}
+
+.elec>div ul,
+.intell>div ul,
+.collo>div ul,
+.par>div ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 616px;
+}
+
+.elec>div ul:nth-of-type(2),
+.elec>div ul:nth-of-type(3),
+.intell>div ul:nth-of-type(2),
+.collo>div ul:nth-of-type(2),
+.par>div ul:nth-of-type(2),
+.par>div ul:nth-of-type(3) {
+    display: none;
+}
+
+.elec>div ul li:last-of-type,
+.intell>div ul li:last-of-type,
+.collo>div ul li:last-of-type,
+.par>div ul li:last-of-type {
+    justify-content: space-between;
+    background: transparent;
+}
+
+.elec>div ul li:last-of-type:hover,
+.intell>div ul li:last-of-type:hover,
+.collo>div ul li:last-of-type:hover,
+.par>div ul li:last-of-type:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.elec>div ul li>div,
+.intell>div ul li>div,
+.collo>div ul li>div,
+.par>div ul li>div {
+    flex-direction: row;
+    align-items: center;
+    width: 234px;
+    height: 143px;
+    background: #ffffff;
+    transition: all .4s;
+}
+
+.elec>div ul li>div:last-of-type,
+.intell>div ul li>div:last-of-type,
+.collo>div ul li>div:last-of-type,
+.par>div ul li>div:last-of-type {
+    background: url(../img/elec_more.jpg) #fff 150px 48px no-repeat;
+}
+
+.elec>div ul li>div:last-of-type>span,
+.intell>div ul li>div:last-of-type>span,
+.collo>div ul li>div:last-of-type>span,
+.par>div ul li>div:last-of-type>span {
+    display: flex;
+    flex-direction: column;
+    height: 38px;
+    margin-left: 30px;
+    font-size: 18px;
+}
+
+.elec>div ul li>div:last-of-type>span i,
+.intell>div ul li>div:last-of-type>span i,
+.collo>div ul li>div:last-of-type>span i,
+.par>div ul li>div:last-of-type>span i {
+    margin-top: 3px;
+    font-size: 9px;
+    color: #999;
+}
+
+.elec>div ul li img,
+.intell>div ul li img,
+.collo>div ul li img,
+.par>div ul li img {
+    width: 70%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.intell>p,
+.collo>p {
+    width: 120px;
+}
+
+
+/* 视频 */
+
+.video {
+    position: relative;
+    width: 1226px;
+    margin-bottom: 30px;
+}
+
+.video ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.video ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 288px;
+    background: #fff;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.video ul li:hover {
+    box-shadow: 2px 2px 2px 2px 2px #888;
+    transform: translateY(-3px);
+}
+
+.video ul li>span {
+    position: absolute;
+    top: 136px;
+    left: 20px;
+    width: 40px;
+    height: 20px;
+    border: 3px solid #fff;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.video ul li>span i {
+    display: block;
+    width: 0;
+    border: 8px solid transparent;
+    border-left-color: #fff;
+    margin: 2px 0 0 17px;
+}
+
+.video ul li:hover span {
+    border-color: rgb(255, 103, 0);
+    background: rgb(255, 103, 0);
+}
+
+.video ul li p {
+    margin-top: 30px;
+    font-size: 13px;
+}
+
+
+/* footer_top */
+
+.footer_top {
+    width: 1226px;
+    margin: 0 auto;
+    line-height: 1;
+}
+
+.footer_top ul {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 40px;
+}
+
+.footer_top ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    border-right: 1px solid #666;
+    box-sizing: border-box;
+    font-size: 17px;
+    color: #666;
+    cursor: pointer;
+}
+
+.footer_top ul li:last-of-type {
+    border-right: none;
+}
+
+.footer_top ul li img {
+    margin: -2px 4px 0 0;
+}
+
+.footer_top div {
+    display: flex;
+}
+
+.footer_top div p {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    font-size: 13px;
+    color: #777;
+}
+
+.footer_top div p a {
+    margin: 8px 0;
+    font-size: 11px;
+    color: #999;
+}
+
+.footer_top div p a:nth-of-type(1) {
+    margin-top: 30px;
+}
+
+.footer_top div p:last-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 242px;
+    height: 110px;
+    border-left: 1px solid #666;
+    margin-left: 20px;
+}
+
+.footer_top div p:last-of-type span {
+    font-size: 18px;
+    color: #ff6700;
+}
+
+.footer_top div p:last-of-type strong {
+    margin: 10px 0 15px 0;
+    text-align: center;
+    line-height: 18px;
+}
+
+.footer_top div p:last-of-type i {
+    width: 120px;
+    height: 30px;
+    background: url(../img/kefu.jpg);
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.footer_top div p:last-of-type i:hover {
+    background: url(../img/kefu_active.jpg);
+}
+
+footer {
+    display: flex;
+    align-items: flex-start;
+    padding: 34px 62px 0 62px;
+    height: 234px;
+    line-height: 1;
+    background: rgb(250, 250, 250) url(https://s02.mifile.cn/assets/static/image/slogan2016.png) center 200px no-repeat;
+}
+
+footer div p {
+    margin-left: 6px;
+    font-size: 10px;
+    color: #999;
+}
+
+footer div p:nth-of-type(1) {
+    display: flex;
+    line-height: 20px;
+}
+
+footer div p:nth-of-type(1) a {
+    margin: 0 3px;
+    color: #999;
+}
+
+footer div p:nth-of-type(2) {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+footer div p:nth-of-type(2) a {
+    height: 20px;
+    color: #999;
+    line-height: 18px;
+}
+
+footer div p a:hover {
+    color: #ff6b00;
+}
+
+footer div p:last-of-type img {
+    width: 85px;
+}
+
+.fixed {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    width: 25px;
+    height: 42px;
+    border: 1px solid #888;
+    background: url(https://i1.mifile.cn/f/i/2018/home/totop.png) center no-repeat;
+    cursor: pointer;
+}
+
+.fixed:hover {
+    background: url(https://i1.mifile.cn/f/i/2018/home/totop_hover.png) center no-repeat;
+}
