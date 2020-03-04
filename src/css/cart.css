@@ -73,14 +73,8 @@ main>div:nth-of-type(1) {
     align-items: center;
     width: 1226px;
     height: 70px;
-    margin: 40px 0 1px 0;
+    margin: 40px 0 0 0;
     background: #fff;
-}
-
-main>div:nth-of-type(1) input {
-    width: 20px;
-    height: 20px;
-    margin-left: 24px;
 }
 
 main>div:nth-of-type(1) span {
@@ -88,7 +82,18 @@ main>div:nth-of-type(1) span {
 }
 
 main div:nth-of-type(1) span:nth-of-type(1) {
-    margin: 0 146px 0 15px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(255, 107, 0);
+    margin: 0 180px 0 17px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+main div:nth-of-type(1) span:nth-of-type(1):hover {
+    color: #fff;
+    background: rgb(255, 107, 0);
 }
 
 main>div:nth-of-type(1) span:nth-of-type(3) {
@@ -134,17 +139,7 @@ main>div:nth-of-type(2)>span:nth-of-type(1) {
     color: #ff6b00;
 }
 
-main>div:nth-of-type(2)>span:nth-of-type(2) {
-    font-size: 11px;
-    color: #ff6b00;
-}
-
-main>div:nth-of-type(2)>span:nth-of-type(2) i {
-    font-size: 25px;
-    color: #ff6b00;
-}
-
-main>div:nth-of-type(2)>span:nth-of-type(3) {
+main>div:nth-of-type(2)>span:nth-of-type(1) {
     position: absolute;
     right: 0;
     width: 202px;
@@ -153,6 +148,7 @@ main>div:nth-of-type(2)>span:nth-of-type(3) {
     text-align: center;
     line-height: 40px;
     background: #ff6b00;
+    cursor: pointer;
 }
 
 main>ul li {
@@ -160,6 +156,7 @@ main>ul li {
     align-items: center;
     width: 1226px;
     height: 120px;
+    margin-top: 1px;
     background: #fff;
 }
 
@@ -169,7 +166,11 @@ main>ul li input {
     margin: 0 70px 0 24px;
 }
 
-main>ul li>span {
+main>ul li img {
+    width: 80px;
+}
+
+main>ul li>span:nth-of-type(1) {
     width: 425px;
     margin-left: 34px;
     height: 19px;
@@ -189,33 +190,33 @@ main>ul li>p {
     margin-right: 80px;
 }
 
-main>ul li>p span {
+main>ul li>p b,
+main>ul li>p em {
+    width: 28px;
+    cursor: pointer;
     height: 28px;
     text-align: center;
     line-height: 28px;
 }
 
-main>ul li>p span:nth-of-type(1),
-main>ul li>p span:nth-of-type(3) {
-    width: 28px;
-    cursor: pointer;
-}
-
-main>ul li>p span:nth-of-type(2) {
+main>ul li>p span {
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
     flex: 1;
 }
 
-main>ul li>p span:nth-of-type(1):hover,
-main>ul li>p span:nth-of-type(3):hover {
+main>ul li>p b:hover,
+main>ul li>p em:hover {
     background: #ddd;
 }
 
-main>ul li>i {
+main>ul li>span:nth-of-type(2) {
     width: 150px;
     color: #ff6b00;
 }
 
-main>ul li>em {
+main>ul li>i {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -224,9 +225,92 @@ main>ul li>em {
     cursor: pointer;
 }
 
-main>ul li>em:hover {
+main>ul li>i:hover {
     color: #fff;
     background: rgb(229, 57, 53);
+}
+
+main>fieldset {
+    width: 1226px;
+    border: none;
+    border-top: 1px solid #777;
+    margin-top: 30px;
+    text-align: center;
+}
+
+main>fieldset legend {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #666;
+}
+
+main>fieldset>ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 634px;
+    line-height: 1;
+}
+
+main>fieldset>ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 234px;
+    height: 302px;
+    background: #fff;
+}
+
+main>fieldset>ul li img {
+    margin: 30px 0 10px;
+}
+
+main>fieldset>ul li p {
+    width: 184px;
+    font-size: 13px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+main>fieldset>ul li span {
+    margin: 20px 0 25px;
+    font-size: 13px;
+    color: #ff6b00;
+}
+
+main>fieldset>ul li strong {
+    font-size: 13px;
+    color: #666;
+}
+
+main>fieldset>ul li i {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+    width: 122px;
+    height: 30px;
+    border: 1px solid rgb(242, 88, 7);
+    margin: 0 auto;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    line-height: 30px;
+    background: #fff;
+}
+
+main>fieldset>ul li i:hover {
+    color: #fff;
+    background: rgb(242, 88, 7);
+    cursor: pointer;
+}
+
+main>fieldset>ul li:hover i {
+    display: block;
 }
 
 .footer_top {
@@ -360,4 +444,106 @@ footer div p a:hover {
 
 footer div p:last-of-type img {
     width: 85px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.cover {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+}
+
+.del {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: -300px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 270px;
+    line-height: 1;
+    background: #FFF;
+    transition: all .4s;
+}
+
+.del>em {
+    align-self: flex-end;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 20px 20px 0 0;
+    color: #999;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.del>em:hover {
+    color: #fff;
+    background: rgb(229, 57, 53);
+}
+
+.del>h3 {
+    margin: 30px 0 80px;
+    font-size: 30px;
+    color: #666;
+}
+
+.del>p {
+    display: flex;
+}
+
+.del>p span {
+    width: 160px;
+    height: 40px;
+    margin: 0 20px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.del>p span:nth-of-type(1) {
+    background: rgb(176, 176, 176);
+}
+
+.del>p span:nth-of-type(2) {
+    background: rgb(255, 103, 0);
+}
+
+.del>p span:nth-of-type(1):hover {
+    background: rgb(117, 117, 117);
+}
+
+.del>p span:nth-of-type(2):hover {
+    background: rgb(242, 88, 7);
+}
+
+.settle {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: -1000px;
+    bottom: 0;
+    width: 300px;
+    height: 140px;
+    margin: auto;
+    font-size: 30px;
+    color: rgb(242, 88, 7);
+    text-align: center;
+    line-height: 140px;
+    background: #fff;
+    transition: all .4s;
 }

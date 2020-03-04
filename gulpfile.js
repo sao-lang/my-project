@@ -44,7 +44,10 @@ const imgHandler = () => {
     return gulp.src("./src/img/**")
         .pipe(gulp.dest("./dist/img"));
 }
-
+const jsonHandler = () => {
+    return gulp.src("./src/json/**")
+        .pipe(gulp.dest("./dist/json"));
+}
 
 const libHandler = () => {
     return gulp.src("./src/lib/**")
@@ -56,7 +59,7 @@ const delHandler = () => {
     return del(["./dist"]);
 }
 
-// 8 写一个配置服务器的方法
+
 const serverHandler = () => {
     return gulp.src('./dist')
         .pipe(webserver({
@@ -87,7 +90,7 @@ const watchHandler = () => {
 
 module.exports.default = gulp.series(
     delHandler,
-    gulp.parallel(cssHandler, jsHandler, htmlHandler, imgHandler, libHandler),
+    gulp.parallel(cssHandler, jsHandler, htmlHandler, imgHandler, libHandler, jsonHandler),
     serverHandler,
     watchHandler
 )

@@ -13,7 +13,8 @@ ol,
 dl,
 dd,
 input,
-textarea {
+textarea,
+fieldset {
     padding: 0;
     margin: 0;
 }
