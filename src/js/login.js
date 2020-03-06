@@ -16,26 +16,7 @@ window.onload = function() {
         return e.preventDefault();
     }
 
-    function setCookie(key, value, expires) {
-        if (expires) {
-            let d = new Date();
-            let t = d.setTime(d.getTime() - 1000 * 60 * 60 * 8 + 1000 * expires);
-            document.cookie = `${key}=${value};expires=${t}`;
-        } else {
-            document.cookie = `${key}=${value}`;
-        }
-    }
 
-    function getCookie(key) {
-        let str = document.cookie;
-        let arr = str.split("; ");
-        for (let i = 0; i < arr.length; i++) {
-            let newArr = arr[i].split("=");
-            if (key === newArr[0]) {
-                return newArr[1];
-            }
-        }
-    }
 
     let uReg = /^\w{1,6}$/;
     let pReg = /^\w{1,12}$/;
@@ -45,7 +26,7 @@ window.onload = function() {
         if (pReg.test($("input[name=name]").val())) {
             flag = true;
         } else {
-            $(".box div:nth-of-type(1) i").text("您输入的用户名不合法");
+            $(".box div:nth-of-type(1) i").text("您输入的用户名或密码不合法");
             flag = false;
         }
     });
@@ -53,21 +34,31 @@ window.onload = function() {
         if (pReg.test($("input[name=pwd]").val())) {
             newFlag = true;
         } else {
-            $(".box div:nth-of-type(1) i").text("您输入的用户名不合法");
+            $(".box div:nth-of-type(1) i").text("您输入的用户名或密码不合法");
             newFlag = false;
         }
     });
-    $("button:eq(1)").click((e) => {
+    $("input[name=name]").focus(() => {
+        $(".box div:nth-of-type(1) i").text("");
+    })
+    $("input[name=pwd]").focus(() => {
+        $(".box div:nth-of-type(1) i").text("");
+    })
+    $("button:eq(0)").click((e) => {
         returnDefault(e);
         if (flag && newFlag) {
             $.ajax({
-                url: "/gx",
+                url: "/gx2",
                 dataType: "text",
                 data: {
                     username: `${$("input[name=name]").val()}`,
                     password: `${$("input[name=pwd]").val()}`
                 },
                 success: function(res) {
+                    if (res === "登录成功") {
+                        setCookie("login", "1", 21);
+                        location.href = "../views/index.html";
+                    };
                     alert(res);
                 }
             })
@@ -75,11 +66,11 @@ window.onload = function() {
             alert("请输入合法用户名和密码");
         }
     });
-    $("button:eq(0)").click((e) => {
+    $("button:eq(1)").click((e) => {
         returnDefault(e);
         if (flag && newFlag) {
             $.ajax({
-                url: "/gx2",
+                url: "/gx",
                 dataType: "text",
                 data: {
                     username: `${$("input[name=name]").val()}`,
