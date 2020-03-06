@@ -5,7 +5,7 @@ window.onload = function() {
     let n = 0;
     // 没有商品时进行提示
     function remove() {
-        if (num === 0) {
+        if ($("main>ul").children("li").length === 0) {
             $("main>div").css({ display: "none" });
             $("main").css({ paddingTop: "490px", background: "rgb(245, 245, 245) url(../img/cart_bg.png) center top no-repeat" });
             $("main>fieldset legend").text("为您推荐");
@@ -34,7 +34,7 @@ window.onload = function() {
     // 商品数量改变
     function numChange() {
         let m = 0;
-        for (let i = 0; i < num; i++) {
+        for (let i = 0; i < $("main>ul").children("li").length; i++) {
             m += Number($("main>ul").children("li").eq(i).children("p").children("span").text());
             n = m;
         }
@@ -56,8 +56,6 @@ window.onload = function() {
         }
     })
 
-    console.log(localStorage.getItem("goodsList"));
-
     let goods = [];
     let goodsList = [];
 
@@ -73,7 +71,6 @@ window.onload = function() {
                 } else {
                     $("main>div:nth-of-type(2)>p span:eq(0)").text(Number($("main>div:nth-of-type(2)>p span:eq(0)").text()) + 1);
                 }
-                num += 1;
                 remove();
                 numChange();
             }
@@ -90,8 +87,8 @@ window.onload = function() {
         } else {
             $("main>div:nth-of-type(2)>p span:eq(0)").text(Number($("main>div:nth-of-type(2)>p span:eq(0)").text()) + 1);
         }
-        num += 1;
         numChange();
+        console.log($("main>ul").children("li").length);
     })
 
     // 删除商品
@@ -105,16 +102,16 @@ window.onload = function() {
         hidden(".del>p span:nth-of-type(2)", function() {
             $("li[flag=true]").remove();
             numChange();
-            num -= 1;
-            if (num === 0) {
+            if ($("main>ul").children("li").length === 0) {
                 remove();
             }
             // 删除localStorage中的商品，当id相等的时候
             for (let i = 0; i < goodsList.length; i += 4) {
-                console.log(localStorage.getItem("goodsList"));
                 if (that.data("id") == goodsList[2 + i]) {
                     goodsList.splice(goodsList.indexOf(goodsList[2 + i]) - 2, 4)
                     localStorage.setItem("goodsList", goodsList);
+                    console.log(1);
+                    // console.log(localStorage.getItem("goodsList"));
                     break;
                 }
             }
@@ -172,7 +169,7 @@ window.onload = function() {
     $("main>div:nth-of-type(2)>span:nth-of-type(1)").click(function() {
         let m = 0;
         let q = 0;
-        for (let i = 0; i < num; i++) {
+        for (let i = 0; i < $("main>ul").children("li").length; i++) {
             if ($(this).parent().prev().children("li").eq(i).children("input").prop("checked")) {
                 m += Number($("main>ul").children("li").eq(i).children("span").eq(1).children("span").text());
                 q += Number($("main>ul").children("li").eq(i).children("p").children("span").text());
@@ -185,8 +182,4 @@ window.onload = function() {
         $(".settle").css({ top: 0 }).text(`您选择了${l}件商品，一共要消费${x}元`);
         $(".cover").css({ display: "block" });
     })
-
-
-
-
 }
